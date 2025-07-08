@@ -1,0 +1,24 @@
+1. How is a grayscale image represented on a computer? How about a color image?
+a: 图片由元素数组表示信息。一个灰度图，假设是256*256大小，那么它会有256*256个像素信息，每个像素展示的是灰度像素值大小。
+0是黑色，255是白色，中间的整数值是不同的灰度值。而一个彩色图片有3维，前面两个是高、宽，最后一个维度的3个值对应r,g,b。
+8位深度，取值范围是0-255。(255, 0, 0) 表示纯红色，(0, 255, 0) 表示纯绿色，(0, 0, 255) 表示纯蓝色；
+
+2. How are the files and folders in the MNIST_SAMPLE dataset structured? Why?
+a:有两个文件夹 train and valid.每个都含有3，7两个图片合集
+
+3.Explain how the “pixel similarity” approach to classifying digits works.
+a:“像素相似度”是一种简单的数字分类思路。比较待分类图像与已知类别的图像（训练样本）在像素层面的相似程度，来判断数字的类别。
+比如计算分类图像与模版图像对应像素的差值（绝对值或平方），总和越小皮，相似度越高
+
+4. What is a list comprehension? Create one now that selects odd numbers from a list and doubles them.
+lstout=[x*2 for x in a_list if x%2==1]
+
+5.What is a “rank 3 tensor”?
+3阶张量，具有3个维度的张量。(d1,d2,d3).举例，有10张28*28像素的照片，可以写成tensor(10,28,28),一张heightxwidth的RGB
+图像，可以写成(height,width,3)
+
+6.What is the difference between tensor rank and shape?
+tensor rank是秩，也就是tensor的轴或者维度；shape是每个轴的大小。
+如何从shape获取秩。假设有一个数据集，叫做 stacked_threes ，stacked_threes.shape 是 torch.Size([6134,28,28])
+我们要获取秩，那么这这样，len(stacked_threes.shape),  或者这样stacked_threes.ndim
+
